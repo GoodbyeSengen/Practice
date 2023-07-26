@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>두 수의 최대공약수 구하기</title>
+  <style>
+    #container {
+      width: 350px;
+      margin: 0 auto;
+    }
+
+    h1,
+    p {
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+    }
+
+    #result {
+      border: 1px solid;
+      width: 150px;
+      height: 40px;
+      margin: 40px auto;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <h1>최대공약수 구하기</h1>
+    <p>두 수를 입력한 후 [계산하기]를 클릭하세요.
+    <p>
+    <form name="testForm">
+      <label class="fis" for="firstNumber"></label>
+      <input type="text" id="firstNumber" name="firstNumber" placeholder="첫 번째 수">
+      <label class="sec" for="secondNumber"></label>
+      <input type="text" id="secondNumber" name="secondNumber" placeholder="첫 번째 수">
+    </form>
+    <button id="send">계산하기</button>
+    <div id="result"></div>
+  </div>
+  <script>
+    const n = document.querySelector("#firstNumber");
+    const m = document.querySelector("#secondNumber");
+    const button = document.querySelector("button");
+    let result = document.querySelector("#result");
+
+    button.onclick = function () {
+      result.innerText = gcd(n.value, m.value);
+    }
+
+    function gcd(c, d) {
+      if (c > d) {
+        let num = d;
+        while (true) {
+          if (c % num === 0 && d % num === 0) {
+            return num;
+          }
+          else {
+            num--;
+          }
+        }
+      }
+      else if (d > c) {
+        let num = c;
+        while (true) {
+          if (c % num === 0 && d % num === 0) {
+            return num;
+          }
+          else {
+            num--;
+          }
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>
