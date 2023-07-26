@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM 활용하기 예제2 (속성 노드)</title>
+
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    h1 {
+      padding: 10px 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      background-color: #222;
+      color: #fff;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <h1>Enjoy your life</h1>
+  </div>
+  <script>
+    const today = new Date(); // 현재 날짜와 시간 정보를 담은 today 객체
+    const hrs = today.getHours(); // 현재 시간 중 시간 정보만 가져옴
+    const container = document.querySelector("#container");
+
+    let newImg = document.createElement("img");
+    newImg.src = (hrs < 12) ? "images/morning.jpg" : "images/afternoon.jpg";
+    container.appendChild(newImg);
+  </script>
+</body>
+
+</html>
