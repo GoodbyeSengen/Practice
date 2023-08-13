@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>연습문제 2</title>  
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin:0;
+      min-height:100vh;
+    }
+    
+    button {
+      background-color:#ddd;
+      padding:1rem 3rem;
+      border:1px solid #222;
+      border-radius:5px;
+      box-shadow:1px 1px 2px #222;
+    }
+    
+    /* noti-box로 우측 하단에 고정해 놓고, .noti를 그 안에 넣을 것! */
+    #noti-box {
+      position:fixed;
+      top:20px;
+      right:20px;  
+    }
+    .noti {
+      margin:1rem;
+      padding:1rem;
+      background-color:#eee;
+      border-left:3px solid #222;
+    }
+  </style>
+</head>
+<body>
+  <div id="noti-box"></div>
+  <button id="bttn">클릭!</button>
+
+  <script>
+    const notiBox = document.querySelector("#noti-box");
+    const bttn = document.querySelector("#bttn");
+
+    bttn.addEventListener("click", () => {
+      const noti = document.createElement('div');
+      noti.classList.add('noti');
+      noti.innerText = "알림 내용이 표시됩니다.";
+      notiBox.appendChild(noti);
+    
+      setTimeout(() => {
+        noti.remove();
+      }, 3000);
+    });
+    
+  </script>
+</body>
+</html>
